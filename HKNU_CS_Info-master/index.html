@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항 목록</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- https://www.hknu.ac.kr/schdulmanage/kor/5/yearSchdul.do -->
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+        body {
+            font-family: 'Aboreto', cursive;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-fluid {
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .col-lg-6,
+        .col-md-6,
+        .col-sm-12 {
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        li {
+            font-size: 18px;
+            color: #555;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        li div {
+            display: inline-block;
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+            /* Adjust the transition duration */
+        }
+    </style> -->
+</head>
+
+
+<!-- <div id="content"></div>
+
+    <script>
+        // JSON 파일에서 데이터를 불러오는 함수
+        async function loadNotices() {
+            try {
+                const response = await fetch('test.json'); // notices.json 파일 위치
+                if (!response.ok) {
+                    throw new Error('공지사항 파일을 불러오는 데 실패했습니다.');
+                }
+                const data = await response.json();
+
+                // 공지사항을 표시하기 전에 이전 내용을 삭제
+                document.getElementById('content').innerHTML = '';
+
+                displayNotices(data);
+            } catch (error) {
+                console.error('공지사항 불러오기 오류:', error);
+            }
+        }
+
+        // HTML 요소를 동적으로 생성하는 함수
+        function createNoticeElement(category, notices) {
+            const container = document.createElement('div');
+            container.className = 'category';
+            
+            const title = document.createElement('h2');
+            title.textContent = category;
+            container.appendChild(title);
+
+            notices.forEach(notice => {
+                const item = document.createElement('div');
+                item.className = 'notice';
+                item.textContent = `[${notice.번호}] ${notice.제목} (${notice.작성일})`;
+                container.appendChild(item);
+            });
+
+            return container;
+        }
+
+        // 데이터를 웹 페이지에 표시하는 함수
+        function displayNotices(data) {
+            const content = document.getElementById('content');
+
+            for (const category in data) {
+                const categoryElement = createNoticeElement(category, data[category]);
+                content.appendChild(categoryElement);
+            }
+        }
+
+        // JSON 파일에서 데이터를 불러와 표시하는 함수 호출
+        loadNotices();
+
+        // 1시간마다 공지사항 갱신
+        setInterval(loadNotices, 10000);
+    </script> -->
+<!-- <body>
+            <div class="container-fluid">
+                <div class="row no-gutters">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="section" style="height: 60vh;">
+                            <h2><span>전체공지</span></h2>
+                            <ul id="general-announcements">
+                                <li>1 : 전체공지</li>
+                                <li>2 : 전체공지</li>
+                                <li>3 : 전체공지</li>
+                                <li>4 : 전체공지</li>
+                                <li>5 : 전체공지</li>
+                                <li>6 : 전체공지</li>
+                                <li>7 : 전체공지</li>
+                                <li>8 : 전체공지</li>
+                                <li>9 : 전체공지</li>
+                                <li>10 : 전체공지</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="section" style="height: 60vh;">
+                            <h2>달력</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="section" style="height: 40vh;">
+                            <h2>4학년</h2>
+                            <ul id="grade4-announcements">
+                                <li>4학년 공지 1</li>
+                                <li>4학년 공지 2</li>
+                                <li>4학년 공지 3</li>
+                                <li>4학년 공지 4</li>
+                                <li>4학년 공지 5</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="section" style="height: 40vh;">
+                            <h2>1,2,3학년</h2>
+                            <ul id="grades1-3-announcements">
+                                <li>1,2,3학년 공지 1</li>
+                                <li>1,2,3학년 공지 2</li>
+                                <li>1,2,3학년 공지 3</li>
+                                <li>1,2,3학년 공지 4</li>
+                                <li>1,2,3학년 공지 5</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // 애니메이션을 적용할 리스트 아이템들을 처리하는 함수
+                    function animateListItems(listId, delayTime, transitionTime) {
+                        const list = document.getElementById(listId);
+                        const items = list.getElementsByTagName('li');
+        
+                        // 리스트 아이템의 각 글자에 애니메이션을 적용하는 함수
+                        const animateText = () => {
+                            for (let i = 0; i < items.length; i++) {
+                                const item = items[i];
+                                const textArray = item.textContent.split('');
+                                item.textContent = '';
+        
+                                textArray.forEach((char, index) => {
+                                    const span = document.createElement('div');
+                                    span.textContent = char;
+                                    span.style.transitionDelay = `${index * 0.15}s`;
+                                    item.appendChild(span);
+                                });
+                            }
+                        };
+        
+                        // 모든 리스트 아이템을 동시에 위로 올리는 애니메이션 적용
+                        const animateItemsUpward = () => {
+                            for (let i = 0; i < items.length; i++) {
+                                const item = items[i];
+                                for (let j = 0; j < item.children.length; j++) {
+                                    item.children[j].style.transform = 'translateY(-60%)';
+                                }
+                            }
+        
+                            setTimeout(() => {
+                                const firstItem = items[0];
+                                list.removeChild(firstItem);
+        
+                                const newItem = document.createElement('li');
+                                newItem.innerHTML = firstItem.innerHTML;
+                                newItem.classList.add('new-item');
+                                list.appendChild(newItem);
+        
+                                for (let i = 0; i < newItem.children.length; i++) {
+                                    newItem.children[i].style.transform = 'translateY(0)';
+                                    newItem.children[i].style.opacity = '1';
+                                }
+        
+                                setTimeout(() => {
+                                    for (let i = 0; i < newItem.children.length; i++) {
+                                        newItem.children[i].style.transform = 'translateY(0)';
+                                    }
+                                }, transitionTime);
+                            }, transitionTime);
+                        };
+        
+                        animateText();
+                        setInterval(animateItemsUpward, delayTime + transitionTime);
+                    }
+        
+                    // 새로운 공지 내용을 추가하는 함수
+                    function addAnnouncement(listId, newContent) {
+                        const list = document.getElementById(listId);
+        
+                        // 새로운 리스트 아이템을 만듭니다.
+                        const newItem = document.createElement('li');
+                        const textArray = newContent.split('');
+                        textArray.forEach((char, index) => {
+                            const span = document.createElement('div');
+                            span.textContent = char;
+                            span.style.transitionDelay = `${index * 0.15}s`;
+                            newItem.appendChild(span);
+                        });
+        
+                        // 리스트에 새로운 아이템을 추가합니다.
+                        list.appendChild(newItem);
+                    }
+        
+                    // 공지사항별 추가하고 싶은 내용을 content에다 담으면 됩니다.
+                    function addGeneralAnnouncement(content) {
+                        addAnnouncement('general-announcements', content);
+                    }
+                    function addGrade4Announcement(content) {
+                        addAnnouncement('grade4-announcements', content);
+                    }
+                    function addGrade1to3Announcement(content) {
+                        addAnnouncement('grades1-3-announcements', content);
+                    }
+        
+                    // 각 리스트에 대해 애니메이션을 적용합니다.
+                    animateListItems('general-announcements', 3000, 1000); // 예시: 3초 대기, 1초 전환
+                    animateListItems('grade4-announcements', 3000, 1000);
+                    animateListItems('grades1-3-announcements', 3000, 1000);
+        
+                    // 예시: 새로운 공지 추가 (테스트용)
+                    setTimeout(() => {
+                        addAnnouncement('general-announcements', '새로운 전체 공지테스트');
+                    }, 3000);
+                    setTimeout(() => {
+                        addAnnouncement('grade4-announcements', '새로운 4학년 공지테스트');
+                    }, 3000);
+                    setTimeout(() => {
+                        addAnnouncement('grades1-3-announcements', '새로운 1,2,3학년 공지테스트');
+                    }, 3000);
+                });
+            </script>
+    </body> -->
+
+</html>

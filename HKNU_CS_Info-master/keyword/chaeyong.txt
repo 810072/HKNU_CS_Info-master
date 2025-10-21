@@ -1,0 +1,4 @@
+ICT 빅데이터 IT 인공지능 웹개발 언리얼 풀스택 앱개발
+프론트엔드 백엔드 SW 개발자 프로그래머 블록체인 python Javascript
+파이썬 C++ 자바 AI 데이터베이스 클라우드 보안 암호화 Rust Swift rust swift
+머신러닝 딥러닝 IoT 사물인터넷 API 게임 소프트웨어 Python JAVA 러스트 디버깅 RESTful Flutter 코딩 SQL Unity 데이터_엔지니어 Kotlin jenkins 데이터플랫폼
